@@ -23,7 +23,7 @@ public class Ticket {
             referencedColumnName = "idPiece"
     )
     private PieceTheatrale pieceTheatrale;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "id_ticket",
             referencedColumnName = "idTicket"

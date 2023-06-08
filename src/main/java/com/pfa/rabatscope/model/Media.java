@@ -26,7 +26,7 @@ public class Media {
     @Column(nullable = false)
     private String nomMedia;
     private String typeMedia;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name= "id_piece",
             referencedColumnName = "idPiece"

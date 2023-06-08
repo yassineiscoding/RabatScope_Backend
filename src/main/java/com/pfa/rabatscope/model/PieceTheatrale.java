@@ -23,7 +23,7 @@ public class PieceTheatrale {
     private String heureDebut;
 
     private String heureFin;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name="id_sponsor",
             referencedColumnName = "idSponsor"

@@ -25,7 +25,7 @@ public class Manager {
     private Long idManager;
     private String nomManager;
     private String contactManager;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "management",
             joinColumns = @JoinColumn(

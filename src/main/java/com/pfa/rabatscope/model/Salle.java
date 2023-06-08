@@ -31,7 +31,7 @@ public class Salle {
             referencedColumnName = "idSalle"
     )
     private List<Staff> staffs;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "localisation",
             joinColumns = @JoinColumn(

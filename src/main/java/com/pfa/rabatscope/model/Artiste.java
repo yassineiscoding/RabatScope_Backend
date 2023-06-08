@@ -25,7 +25,7 @@ public class Artiste {
     private Long idArtiste;
     private String nomArtiste;
     private String dateNaissance;
-    @ManyToMany
+    @ManyToMany( cascade = CascadeType.ALL)
     @JoinTable(
             name = "Roles",
             joinColumns = @JoinColumn(
