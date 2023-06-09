@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Data
@@ -24,7 +25,7 @@ public class Artiste {
     @Column(unique = true, nullable = false)
     private Long idArtiste;
     private String nomArtiste;
-    private String dateNaissance;
+    private Timestamp dateNaissance;
     @ManyToMany( cascade = CascadeType.ALL)
     @JoinTable(
             name = "Roles",

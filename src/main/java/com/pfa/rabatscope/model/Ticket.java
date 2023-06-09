@@ -23,10 +23,11 @@ public class Ticket {
             referencedColumnName = "idPiece"
     )
     private PieceTheatrale pieceTheatrale;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "id_ticket",
-            referencedColumnName = "idTicket"
+            name = "id_client",
+            referencedColumnName = "idClient"
     )
-    private List<Client> clients;
+    private Client client;
+
 }

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class ArtisteController {
     record UpdatedArtisteRequest(
 //            Long idArtiste,
             String nomArtiste,
-            String dateNaissance
+            Timestamp dateNaissance
     ) {}
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{idArtiste}")

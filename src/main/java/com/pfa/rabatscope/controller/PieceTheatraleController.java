@@ -2,12 +2,16 @@ package com.pfa.rabatscope.controller;
 
 
 import com.pfa.rabatscope.model.PieceTheatrale;
+import com.pfa.rabatscope.model.Sponsor;
 import com.pfa.rabatscope.repository.PieceTheatraleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import jakarta.validation.Valid;
+
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +33,9 @@ public class PieceTheatraleController {
     record NewPieceTheatraleRequest (
             String nomPiece,
             String lienAffiche,
-            String heureDebut,
-            String heureFin
+            Timestamp heureDebut,
+            Timestamp heureFin,
+            String description
     ){}
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
@@ -40,6 +45,7 @@ public class PieceTheatraleController {
         pieceTheatrale.setLienAffiche(request.lienAffiche());
         pieceTheatrale.setHeureDebut(request.heureDebut());
         pieceTheatrale.setHeureFin(request.heureFin());
+        pieceTheatrale.setDescription(request.description());
         pieceTheatraleRepository.save(pieceTheatrale);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -51,8 +57,9 @@ public class PieceTheatraleController {
     record UpdatedPieceTheatraleRequest(
             String nomPiece,
             String lienAffiche,
-            String heureDebut,
-            String heureFin
+            Timestamp heureDebut,
+            Timestamp heureFin,
+            String description
     ) {}
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{idPiece}")
@@ -68,9 +75,13 @@ public class PieceTheatraleController {
         if (request.heureDebut() != null) {
             pieceTheatrale.setHeureDebut(request.heureDebut());
         }
-        if (request.nomPiece() != null) {
+        if (request.heureFin() != null) {
             pieceTheatrale.setHeureFin(request.heureFin());
         }
+        if (request.description() != null) {
+            pieceTheatrale.setDescription(request.description());
+        }
+
         pieceTheatraleRepository.save(pieceTheatrale);
     }
 }

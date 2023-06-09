@@ -23,6 +23,8 @@ public class Sponsor {
     private Long idSponsor;
     @Column(nullable = false)
     private String nomSponsor;
+    private String logoSponsor;
     private Integer sponsorship;
     private String contactSponsor;
+
 }

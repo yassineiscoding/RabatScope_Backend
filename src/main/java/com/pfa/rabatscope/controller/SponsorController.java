@@ -43,6 +43,7 @@ public class SponsorController {
     record UpdatedSponsorRequest(
             Long idSponsor,
             String nomSponsor,
+            String logoSponsor,
             Integer sponsorship,
             String contactSponsor
     ) {}
@@ -56,6 +57,9 @@ public class SponsorController {
         }
         if (request.nomSponsor() != null) {
             sponsor.setNomSponsor(request.nomSponsor());
+        }
+        if (request.logoSponsor() != null) {
+            sponsor.setLogoSponsor(request.logoSponsor());
         }
         if (request.sponsorship() != null) {
             sponsor.setSponsorship(request.sponsorship());
